@@ -5,8 +5,10 @@ import java.awt.Rectangle;
 public class Pelota extends Rectangle {
 
 	static final int DIM = 20;
-	public static final int DERECHA = 0;
-	public static final int IZQUIERDA = 1;
+	static final int DERECHA = 0;
+	static final int IZQUIERDA = 1;
+	static final int ARRIBA = 2;
+	static final int ABAJO = 3;
 	Color color = new Color(99, 9, 165);
 
 	public Pelota() {
@@ -18,18 +20,15 @@ public class Pelota extends Rectangle {
 		g.fillOval(x, y, width, height);
 	}
 
-	public void caer() {
-		if (!GeometryJump.colision) {
-			y += 10;
-		}
-
-	}
-
 	public void desplazarse(int direccion) {
 		if (direccion == DERECHA) {
-			x += 40;
+			x += 20;
 		} else if (direccion == IZQUIERDA) {
-			x -= 40;
+			x -= 20;
+		} else if (direccion == ARRIBA) {
+			y -= 20;
+		} else if (direccion == ABAJO) {
+			y += 20;
 		}
 	}
 

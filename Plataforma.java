@@ -7,15 +7,15 @@ public class Plataforma extends Rectangle {
 	static final int ALTURA = 20;
 	int posX, posY, anchura;
 	Color color = new Color(171, 53, 28);
+	int velY;
 
 	public Plataforma(int posX, int posY, int anchura) {
 		super(posX, posY - ALTURA, anchura + 50, ALTURA);
-		if (posX > 550) {
-			posX -= 50;
+		if (x > 550) {
+			x -= 50;
 		}
+		velY = (int) (Math.random() * 15) + 3;
 		this.anchura = anchura;
-		this.posX = posX;
-		this.posY = posY;
 	}
 
 	public void dibujar(Graphics g) {
@@ -24,7 +24,7 @@ public class Plataforma extends Rectangle {
 	}
 
 	public void elevar() {
-		y -= 10;
+		y -= velY;
 
 	}
 
